@@ -26,11 +26,19 @@ To run these scripts, you need the following software installed:
 
 ### Install Git
 
-Follow the instructions [here](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) to install Git.
+Follow the instructions [here](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) to install Git. Github on the web is also sufficient and can be assessed [here](https://github.com/login).
 
 ### Install Conda
 
-Follow the instructions [here](https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html) to install Conda.
+Follow the instructions [here](https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html) to install Conda. Here you could select `Miniconda` which is a stand-alone python distribution for conda or `Anaconda` which is a more robust data analysis software manager. Anaconda manages different sofware that are useful for analysis and sofware development.
+
+### Create a new environment with required packages
+Open a terminal and run the following command to create a new environment and install all needed packages
+
+```
+conda create --yes --name new_environment python=3.9 \matplotlib pandas glob pillow numpy pip
+```
+
 
 ### Install CDO
 
@@ -38,12 +46,10 @@ Follow the instructions [here](https://code.mpimet.mpg.de/projects/cdo/wiki) to 
 
 ### Install ImageMagick
 
-Follow the instructions [here](https://imagemagick.org/script/download.php) to install ImageMagick.
+Follow the instructions [here](https://imagemagick.org/script/download.php) to install ImageMagick. As an alternative to ImageMagick, Pillow has also been included in the list of packages that will be installed along with conda.
 
 ## Cloning the Repository
 
 Open a terminal and run the following command to clone the repository:
+```git clone git@github.com:richshepherd/AC3_project.git```
 
-```sh
-git clone https://github.com/yourusername/ClimateDataAnalysis.git
-cd ClimateDataAnalysis
