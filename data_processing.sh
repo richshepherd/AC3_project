@@ -70,12 +70,14 @@ else
     cdo splityearmon $HADCRUT5_DIR/HadCRUT5_data.nc $HADCRUT5_DIR/HadCRUT5_
 fi
 
-# HadCRUT5 data regrid
+# Convert HadCRUT5 data from Kelvin to Celsius and regrid
 for file in $HADCRUT5_DIR/HadCRUT5_*.nc; do
     if [ -f "${file%.nc}_regrid.nc" ]; then
         echo "${file%.nc}_regrid.nc already exists. Skipping regrid."
     else
-        cdo remapbil,$GRID_FILE $file ${file%.nc}_regrid.nc
+        cdo subc,273.15 $file ${file%.nc}_Celsius.nc
+        cdo remapbil,$GRID_FILE ${file%.nc}_Celsius.nc ${file%.nc}_regrid.nc
+        rm ${file%.nc}_Celsius.nc
     fi
 done
 
@@ -94,14 +96,17 @@ else
     cdo splityearmon $ERA5_TEMP_FILE $ERA5_DIR/ERA5_
 fi
 
-# ERA5 data regrid
+# Convert ERA5 data from Kelvin to Celsius and regrid
 for file in $ERA5_DIR/ERA5_*.nc; do
     if [ -f "${file%.nc}_regrid.nc" ]; then
         echo "${file%.nc}_regrid.nc already exists. Skipping regrid."
     else
-        cdo remapbil,$GRID_FILE $file ${file%.nc}_regrid.nc
+        cdo subc,273.15 $file ${file%.nc}_Celsius.nc
+        cdo remapbil,$GRID_FILE ${file%.nc}_Celsius.nc ${file%.nc}_regrid.nc
+        rm ${file%.nc}_Celsius.nc
     fi
 done
 
 # Clean up intermediate files
 rm $ERA5_TEMP_FILE
+
