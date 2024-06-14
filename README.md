@@ -10,10 +10,9 @@ This repository contains scripts to download, preprocess, and analyze climate da
 - `HadCRUT5/`: Directory for HadCRUT5 data files.
 - `ERA5/`: Directory for ERA5 data files.
 - `scripts/`: Directory for all scripts used in this analysis.
-  - `download_and_preprocess.sh`: Bash script to download and preprocess the data.
-  - `create_gifs.py`: Python script to create GIFs from the processed data.
+  - `data_processing.sh`: Bash script to download and preprocess the data.
+  - `data_visualization.py`: Python script to create GIFs from the processed data.
 - `README.md`: This file, containing instructions and explanations.
-- `requirements.txt`: List of Python dependencies.
 
 ## Prerequisites
 
@@ -36,7 +35,7 @@ Follow the instructions [here](https://docs.conda.io/projects/conda/en/latest/us
 Open a terminal and run the following command to create a new environment and install all needed packages
 
 ```bash
-conda create --yes --name climate_analysis python=3.9 matplotlib pandas glob pillow numpy pip
+conda create --yes --name climate_analysis python=3.9 matplotlib pandas glob pillow numpy netCDF4 pip
 ```
 ### Install CDO
 
