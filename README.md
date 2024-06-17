@@ -7,8 +7,8 @@ This repository contains scripts to download, preprocess, and analyze climate da
 
 ## Contents
 
-- `HadCRUT5/`: Directory for HadCRUT5 data files.
-- `ERA5/`: Directory for ERA5 data files.
+- `HadCRUT5/`: Directory for HadCRUT5 data files. The database was not uploaded to GitHub because of the size. When you run the bash script, it will directly download the need file to your machine and you could limit the date range according requirement.  
+- `ERA5/`: Directory for ERA5 data files. This database was not uploaded to the GitHub as well. You could use the API included in the bash script to limit the date range according requirement. The bash script is automated to download the needed data to your machine.
 - `scripts/`: Directory for all scripts used in this analysis.
   - `data_processing.sh`: Bash script to download and preprocess the data.
   - `data_visualization.py`: Python script to create GIFs from the processed data.
@@ -79,7 +79,7 @@ conda activate climate_analysis
 ## Navigate to the Repository Directory
 Change to the directory of the cloned repository:
 ```bash 
-cd AC3_project
+cd ac3_project
 ```
 
 ## Download and Preprocess the Data
