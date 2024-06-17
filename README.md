@@ -13,6 +13,12 @@ This repository contains scripts to download, preprocess, and analyze climate da
   - `data_processing.sh`: Bash script to download and preprocess the data.
   - `data_visualization.py`: Python script to create GIFs from the processed data.
 - `README.md`: This file, containing instructions and explanations.
+- `Output files`:
+  - `grid_2.5x2.5.txt`: Grid file for 2.5x2.5 degree resolution
+  - `hadcrut5_monthly_evolution.gif`: Output HadCRUT5 monthly evolution GIF file for the year 2020 to 2024.
+  - `hadcrut5_winter_mean.gif`: Output HadCRUT5 winter mean GIF file for the year 2020 to 2024.
+  - `era5_monthly_evolution.gif`: Output ERA5 monthly evolution GIF file for the year 2020 to 2024.
+  - `era5_winter_mean.gif`: Output ERA5 winter mean GIF file for the year 2020 to 2024.
 
 ## Prerequisites
 
