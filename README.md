@@ -46,7 +46,19 @@ Follow the instructions [here](https://code.mpimet.mpg.de/projects/cdo/wiki) to 
 Follow the instructions [here](https://imagemagick.org/script/download.php) to install ImageMagick. As an alternative to ImageMagick, Pillow has also been included in the list of packages that should be installed along with conda.
 
 ## Cloning the Repository
-Firstly, fork the repository to your GitHub account.
+Firstly, you can setup a remote access to your GitHub account if not already done. Follow the steps below:
+
+1. Run ```ssh-keygen``` in terminal
+2. It will ask for information like name, email, password -> ```Skip ALL by
+pressing enter until you see the randomart image, this is the key```.
+3. Run ```cat ~/.ssh/id_rsa.pub | pbcopy``` to copy the key to clipboard.
+4. Go to ```https://github.com/settings/keys````
+5. Click on ```New SSH Key ```
+6. Enter meaningful name, e.g “ac3 machine”
+7. Paste copied key into key field.
+8. Click on ```Add SSH Key```
+
+Now, fork the repository to your GitHub account. [Here] is the link to the repository (https://github.com/richshepherd/ac3_project).
 
 ![Climate Analysis](screenshot.png)
 
