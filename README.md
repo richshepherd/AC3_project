@@ -52,13 +52,13 @@ Firstly, you can setup a remote access to your GitHub account if not already don
 2. It will ask for information like name, email, password -> ```Skip ALL by
 pressing enter until you see the randomart image, this is the key```.
 3. Run ```cat ~/.ssh/id_rsa.pub | pbcopy``` to copy the key to clipboard.
-4. Go to ```https://github.com/settings/keys````
+4. Go to [GitHub settings](https://github.com/settings/keys)
 5. Click on ```New SSH Key ```
 6. Enter meaningful name, e.g “ac3 machine”
 7. Paste copied key into key field.
 8. Click on ```Add SSH Key```
 
-Now, fork the repository to your GitHub account. [Here] is the link to the repository (https://github.com/richshepherd/ac3_project).
+Now, fork the repository to your GitHub account. [Here](https://github.com/richshepherd/ac3_project) is the link to the repository.
 
 ![Climate Analysis](screenshot.png)
 
