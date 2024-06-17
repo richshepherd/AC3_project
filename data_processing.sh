@@ -70,14 +70,15 @@ else
     cdo splityearmon $HADCRUT5_DIR/HadCRUT5_data.nc $HADCRUT5_DIR/HadCRUT5_
 fi
 
-# Convert HadCRUT5 data from Kelvin to Celsius and regrid
-for file in $HADCRUT5_DIR/HadCRUT5_*.nc; do
-    if [ -f "${file%.nc}_regrid.nc" ]; then
-        echo "${file%.nc}_regrid.nc already exists. Skipping regrid."
-    else
-        cdo subc,273.15 $file ${file%.nc}_Celsius.nc
-        cdo remapbil,$GRID_FILE ${file%.nc}_Celsius.nc ${file%.nc}_regrid.nc
-        rm ${file%.nc}_Celsius.nc
+# Regrid and convert HadCRUT5 data to Kelvin
+for file in ${HADCRUT5_DIR}/*.nc; do
+    if [[ $file != *_regrid_kelvin.nc ]]; then
+        echo "Processing $file"
+        # Regrid to 2.5x2.5 degree resolution
+        cdo remapbil,$GRID_FILE $file ${file%.nc}_regrid.nc
+        # Convert temperature to Kelvin
+        cdo addc,273.15 ${file%.nc}_regrid.nc ${file%.nc}_regrid_kelvin.nc
+        rm ${file%.nc}_regrid.nc
     fi
 done
 
@@ -96,17 +97,25 @@ else
     cdo splityearmon $ERA5_TEMP_FILE $ERA5_DIR/ERA5_
 fi
 
-# Convert ERA5 data from Kelvin to Celsius and regrid
-for file in $ERA5_DIR/ERA5_*.nc; do
-    if [ -f "${file%.nc}_regrid.nc" ]; then
-        echo "${file%.nc}_regrid.nc already exists. Skipping regrid."
-    else
-        cdo subc,273.15 $file ${file%.nc}_Celsius.nc
-        cdo remapbil,$GRID_FILE ${file%.nc}_Celsius.nc ${file%.nc}_regrid.nc
-        rm ${file%.nc}_Celsius.nc
+# Regrid and convert ERA5 data to Kelvin
+for file in ${ERA5_DIR}/*.nc; do
+    if [[ $file != *_regrid_kelvin.nc ]]; then
+        echo "Processing $file"
+        # Regrid to 2.5x2.5 degree resolution
+        cdo remapbil,$GRID_FILE $file ${file%.nc}_regrid.nc
+        # Convert temperature to Celsius
+        # cdo subc,273.15 ${file%.nc}_regrid.nc ${file%.nc}_regrid_kelvin.nc
+        # rm ${file%.nc}_regrid.nc
     fi
 done
 
 # Clean up intermediate files
 rm $ERA5_TEMP_FILE
 
+
+# Clean up intermediate HadCRUT5 files
+for file in ${HADCRUT5_DIR}/*.nc; do
+    if [[ $file != *_regrid_kelvin.nc ]]; then
+        rm $file
+    fi
+done
