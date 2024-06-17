@@ -5,3 +5,4 @@ xfirst = -180
 xinc = 2.5
 yfirst = -90
 yinc = 2.5
+%totalsize
