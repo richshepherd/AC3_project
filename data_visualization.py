@@ -34,7 +34,7 @@ def create_monthly_gif(input_files, var_name, output_gif, title):
         if 'units' in temp.attrs:
             units = temp.attrs['units']
         else:
-            units = '°C'
+            units = 'K'
 
         print(f"Temperature units: {units}")
         print(f"Temperature range: {temp.min().item()} to {temp.max().item()}")
@@ -91,7 +91,7 @@ def compute_winter_mean(input_files, var_name):
         if 'units' in temp.attrs:
             units = temp.attrs['units']
         else:
-            units = '°C'
+            units = 'K'
 
         print(f"Temperature units before conversion: {units}")
         print(f"Temperature range before conversion: {temp.min().item()} to {temp.max().item()}")
