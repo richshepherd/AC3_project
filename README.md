@@ -41,7 +41,7 @@ Follow the instructions [here](https://docs.conda.io/projects/conda/en/latest/us
 Open a terminal and run the following command to create a new environment and install all needed packages
 
 ```bash
-conda create --yes --name climate_analysis python=3.9 matplotlib pandas glob pillow numpy netCDF4 pip
+conda create --yes --name climate_analysis python=3.9 matplotlib pandas glob pillow numpy netCDF4 pip cdsapi
 ```
 ### Install CDO
 
@@ -70,7 +70,7 @@ Now, fork the repository to your GitHub account. [Here](https://github.com/richs
 
 Next, open a terminal and run the following command to clone the repository:
 
-```git clone git clone git@github.com:yourusername/AC3_project.git```
+```git clone git@github.com:yourusername/AC3_project.git```
 
 Replace `yourusername` with your actual GitHub username.
 
