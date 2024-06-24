@@ -27,6 +27,10 @@ def create_monthly_gif(input_files, var_name, output_gif, title):
     for file in input_files:
         print(f"Processing file: {file}")
         ds = xr.open_dataset(file)
+        
+        # Flip the latitude coordinates
+        ds = ds.sortby('lat', ascending=False)
+        
         time = ds['time']
         temp = ds[var_name]
 
@@ -84,6 +88,10 @@ def compute_winter_mean(input_files, var_name):
     for file in input_files:
         print(f"Processing file: {file}")
         ds = xr.open_dataset(file)
+        
+        # Flip the latitude coordinates
+        ds = ds.sortby('lat', ascending=False)
+        
         time = ds['time']
         temp = ds[var_name]
 
